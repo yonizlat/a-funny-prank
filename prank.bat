@@ -1,6 +1,6 @@
 @echo off
 set IMG_URL=https://i.ytimg.com/vi/tzD9OxAHtzU/hq720_2.jpg
-:: This is changing the wallpaper for this example to skibidi toilet but you can change to every thing you want but WARNING I tried there are lots of urls or pictures that are not working and they can mess your computer up so beware of these
+:: This is changing the wallpaper for this example to skibidi toilet but you can change to everything you want but |WARNING| there are lots of urls of pictures that are not working and they can mess your computer up so beware of these
 :: NOTE! FOR EDUCATIONAL PURPOSES ONLY
 powershell -Command "Invoke-WebRequest -Uri '%IMG_URL%' -OutFile '%TEMP%\wallpaper.jpg'">nul
 powershell -Command "Set-ItemProperty -Path 'HKCU:\Control Panel\Desktop\' -Name Wallpaper -Value '%TEMP%\wallpaper.jpg'; Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class Wallpaper { [DllImport(\"user32.dll\")] public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni); }'; [Wallpaper]::SystemParametersInfo(20, 0, '%TEMP%\wallpaper.jpg', 3)">nul
